@@ -1,0 +1,87 @@
+:host {
+  --modal-width: 500px;
+  --modal-radius: 16px;
+  --modal-padding: 1.5rem;
+  --modal-bg: #fff;
+  --modal-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  --overlay-bg: rgba(0, 0, 0, 0.4);
+  --transition-duration: 300ms;
+  font-family: system-ui, sans-serif;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn var(--transition-duration) ease;
+  z-index: 1000;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all var(--transition-duration) ease;
+}
+
+.overlay.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.overlay.closing {
+  animation: fadeOut var(--transition-duration) ease forwards;
+}
+
+.modal {
+  background: var(--modal-bg);
+  border-radius: var(--modal-radius);
+  box-shadow: var(--modal-shadow);
+  width: var(--modal-width);
+  max-width: 90%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header,
+.modal-footer {
+  padding: var(--modal-padding);
+  background: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-body {
+  padding: var(--modal-padding);
+}
+
+.close-btn {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
