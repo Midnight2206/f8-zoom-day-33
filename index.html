@@ -13,13 +13,13 @@
   function createModal() {
     const modal = document.createElement('app-modal');
     modal.innerHTML = `
-      <span slot="title">🎬 Recording Options</span>
+      <span slot="title">Modal title</span>
       <div slot="body">
-        <p>Do you want to start recording your screen?</p>
+        <p>Modal description</p>
       </div>
       <div slot="footer">
         <button onclick="modal.close()">Cancel</button>
-        <button style="margin-left: 8px;" onclick="alert('Recording...')">Start</button>
+        <button style="margin-left: 8px;" onclick="alert('Start')">Start</button>
       </div>
     `;
     modal.addEventListener('open', () => console.log('Modal opened'));
